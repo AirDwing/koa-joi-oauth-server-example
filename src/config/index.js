@@ -8,6 +8,12 @@ module.exports = {
     db: 1,
     ttl: 3600
   },
+  mysql: {
+    connectionLimit: 10,
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'root'
+  },
   oauth: {
     allowEmptyState: true,
     allowBearerTokensInQueryString: true,

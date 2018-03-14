@@ -13,6 +13,8 @@
     "eslint-config-dwing": "^1.2.0"
   },
   "dependencies": {
+    "@dwing/common": "^1.2.7",
+    "@dwing/mysql": "^3.0.2",
     "@dwing/redis": "^2.0.2",
     "debug": "^3.1.0",
     "koa": "^2.5.0",
