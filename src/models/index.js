@@ -11,6 +11,7 @@ exports.getClient = (id, secret) => {
 };
 
 exports.saveAuthorizationCode = (code, client, user) => {
+  debug(code);
   Object.assign(code, {
     user,
     client: {
@@ -21,4 +22,20 @@ exports.saveAuthorizationCode = (code, client, user) => {
   return code;
 };
 
-exports.getAccessToken = () => { };
+exports.getAccessToken = (bearerToken) => {
+  const tokens = db.tokens.filter(token => token.accessToken === bearerToken);
+
+  return tokens.length ? tokens[0] : false;
+};
+
+exports.saveToken = (token, client, user) => {
+  debug(token);
+  Object.assign(token, {
+    user,
+    client: {
+      id: client.id
+    }
+  });
+  db.tokens.push(token);
+  return token;
+};

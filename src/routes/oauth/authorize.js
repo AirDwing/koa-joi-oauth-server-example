@@ -10,11 +10,11 @@ module.exports = [{
   path: '/authorize',
   handler: (ctx) => {
     // 无 Session， 通过 State 字段传递用户信息
-    // const { state = '' } = ctx.query;
-    // if (state === '') {
-    //   ctx.redirect(`${SSO_URL}?${qs.encode(ctx.query)}`);
-    //   return undefined;
-    // }
+    const { state = '' } = ctx.query;
+    if (state === '') {
+      ctx.redirect(`${SSO_URL}?${qs.encode(ctx.query)}`);
+      return undefined;
+    }
     // Temp
     debug(ctx.query);
     const req = new Request(ctx.request);
@@ -33,8 +33,4 @@ module.exports = [{
     }
   }
 }];
-// }, {
-//   method: 'POST',
-//   path: '/authorize'
-// }];
 

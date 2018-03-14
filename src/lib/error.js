@@ -28,6 +28,9 @@ const errorHandler = (ctx, err) => {
     code: ctx.status,
     name
   };
+  // 跳转
+  const { state = '', redirect_uri: redirectUri } = ctx.query;
+  ctx.redirect(`${redirectUri}?error=${name}${state === '' ? '' : `&state=${state}`}`);
 };
 
 module.exports = () => async (ctx, next) => {

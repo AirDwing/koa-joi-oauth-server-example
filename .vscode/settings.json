@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/bower_components": true,
+    "**/tmp": true,
+    "**/vendor": true,
+    "**/node_modules": false,
+    "**/dist": true,
+    "**/.cache": true
+  }
+}
